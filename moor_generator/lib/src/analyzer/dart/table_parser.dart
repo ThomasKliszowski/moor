@@ -130,8 +130,7 @@ class TableParser {
     // Was the getter overridden at all?
     if (getter.isFromDefaultTable) return null;
 
-    final resolved = await base.loadElementDeclaration(getter);
-    final ast = resolved.node as MethodDeclaration;
+    final ast = await base.loadElementDeclaration(getter) as MethodDeclaration;
     final expr = base.returnExpressionOfMethod(ast);
 
     if (expr == null) return null;
